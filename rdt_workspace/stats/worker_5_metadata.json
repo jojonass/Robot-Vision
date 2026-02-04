@@ -1,0 +1,122 @@
+[
+    {
+        "trial_id": "Fri_Aug_18_11:43:02_2023",
+        "filename": "Fri_Aug_18_11_43_02_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 86
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:45:04_2023",
+        "filename": "Fri_Aug_18_11_45_04_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 110
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:47:08_2023",
+        "filename": "Fri_Aug_18_11_47_08_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 98
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:49:24_2023",
+        "filename": "Fri_Aug_18_11_49_24_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 92
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:52:26_2023",
+        "filename": "Fri_Aug_18_11_52_26_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 77
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:54:37_2023",
+        "filename": "Fri_Aug_18_11_54_37_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 88
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:57:53_2023",
+        "filename": "Fri_Aug_18_11_57_53_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 94
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:01:10_2023",
+        "filename": "Fri_Aug_18_12_01_10_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 110
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:07:59_2023",
+        "filename": "Fri_Aug_18_12_07_59_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 114
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:11:43_2023",
+        "filename": "Fri_Aug_18_12_11_43_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 97
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:14:19_2023",
+        "filename": "Fri_Aug_18_12_14_19_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 81
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:16:33_2023",
+        "filename": "Fri_Aug_18_12_16_33_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 92
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:19:21_2023",
+        "filename": "Fri_Aug_18_12_19_21_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 129
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:21:53_2023",
+        "filename": "Fri_Aug_18_12_21_53_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 101
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:24:21_2023",
+        "filename": "Fri_Aug_18_12_24_21_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 93
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:26:12_2023",
+        "filename": "Fri_Aug_18_12_26_12_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 120
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:28:00_2023",
+        "filename": "Fri_Aug_18_12_28_00_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 69
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:34:25_2023",
+        "filename": "Fri_Aug_18_12_34_25_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 83
+    },
+    {
+        "trial_id": "Fri_Dec_15_08:54:45_2023",
+        "filename": "Fri_Dec_15_08_54_45_2023.hdf5",
+        "instruction": "Turn twistable object (ex: faucets, lamps, stove knobs)",
+        "num_frames": 225
+    },
+    {
+        "trial_id": "Fri_Dec_15_09:29:52_2023",
+        "filename": "Fri_Dec_15_09_29_52_2023.hdf5",
+        "instruction": "Turn twistable object (ex: faucets, lamps, stove knobs)",
+        "num_frames": 271
+    }
+]

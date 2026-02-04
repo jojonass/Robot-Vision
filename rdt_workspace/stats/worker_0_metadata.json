@@ -1,0 +1,122 @@
+[
+    {
+        "trial_id": "Fri_Aug_18_11:40:54_2023",
+        "filename": "Fri_Aug_18_11_40_54_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 176
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:43:44_2023",
+        "filename": "Fri_Aug_18_11_43_44_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 142
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:46:00_2023",
+        "filename": "Fri_Aug_18_11_46_00_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 99
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:47:58_2023",
+        "filename": "Fri_Aug_18_11_47_58_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 97
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:50:19_2023",
+        "filename": "Fri_Aug_18_11_50_19_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 79
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:53:08_2023",
+        "filename": "Fri_Aug_18_11_53_08_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 87
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:56:06_2023",
+        "filename": "Fri_Aug_18_11_56_06_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 85
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:58:51_2023",
+        "filename": "Fri_Aug_18_11_58_51_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 192
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:02:02_2023",
+        "filename": "Fri_Aug_18_12_02_02_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 76
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:10:02_2023",
+        "filename": "Fri_Aug_18_12_10_02_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 115
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:13:07_2023",
+        "filename": "Fri_Aug_18_12_13_07_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 98
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:15:02_2023",
+        "filename": "Fri_Aug_18_12_15_02_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 96
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:17:44_2023",
+        "filename": "Fri_Aug_18_12_17_44_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 84
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:20:19_2023",
+        "filename": "Fri_Aug_18_12_20_19_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 91
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:23:00_2023",
+        "filename": "Fri_Aug_18_12_23_00_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 92
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:25:06_2023",
+        "filename": "Fri_Aug_18_12_25_06_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 73
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:26:53_2023",
+        "filename": "Fri_Aug_18_12_26_53_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 63
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:32:48_2023",
+        "filename": "Fri_Aug_18_12_32_48_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 100
+    },
+    {
+        "trial_id": "Fri_Dec_15_00:00:54_2023",
+        "filename": "Fri_Dec_15_00_00_54_2023.hdf5",
+        "instruction": "Move object into or out of container (ex: drawer, clothes hamper, plate, trashcan, washer)",
+        "num_frames": 304
+    },
+    {
+        "trial_id": "Fri_Dec_15_08:57:56_2023",
+        "filename": "Fri_Dec_15_08_57_56_2023.hdf5",
+        "instruction": "Turn twistable object (ex: faucets, lamps, stove knobs)",
+        "num_frames": 281
+    }
+]

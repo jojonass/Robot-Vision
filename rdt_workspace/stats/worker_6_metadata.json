@@ -1,0 +1,122 @@
+[
+    {
+        "trial_id": "Fri_Aug_18_11:43:15_2023",
+        "filename": "Fri_Aug_18_11_43_15_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 96
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:45:26_2023",
+        "filename": "Fri_Aug_18_11_45_26_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 108
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:47:22_2023",
+        "filename": "Fri_Aug_18_11_47_22_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 91
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:49:51_2023",
+        "filename": "Fri_Aug_18_11_49_51_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 86
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:52:39_2023",
+        "filename": "Fri_Aug_18_11_52_39_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 89
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:54:52_2023",
+        "filename": "Fri_Aug_18_11_54_52_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 121
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:58:07_2023",
+        "filename": "Fri_Aug_18_11_58_07_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 108
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:01:27_2023",
+        "filename": "Fri_Aug_18_12_01_27_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 87
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:08:15_2023",
+        "filename": "Fri_Aug_18_12_08_15_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 100
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:12:31_2023",
+        "filename": "Fri_Aug_18_12_12_31_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 103
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:14:32_2023",
+        "filename": "Fri_Aug_18_12_14_32_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 87
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:17:00_2023",
+        "filename": "Fri_Aug_18_12_17_00_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 81
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:19:50_2023",
+        "filename": "Fri_Aug_18_12_19_50_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 77
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:22:25_2023",
+        "filename": "Fri_Aug_18_12_22_25_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 131
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:24:35_2023",
+        "filename": "Fri_Aug_18_12_24_35_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 118
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:26:28_2023",
+        "filename": "Fri_Aug_18_12_26_28_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 84
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:32:17_2023",
+        "filename": "Fri_Aug_18_12_32_17_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 92
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:34:40_2023",
+        "filename": "Fri_Aug_18_12_34_40_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 107
+    },
+    {
+        "trial_id": "Fri_Dec_15_08:57:07_2023",
+        "filename": "Fri_Dec_15_08_57_07_2023.hdf5",
+        "instruction": "Open or close hinged object (ex: hinged door, microwave, oven, book, dryer, toilet, box)",
+        "num_frames": 335
+    },
+    {
+        "trial_id": "Fri_Dec_15_09:30:54_2023",
+        "filename": "Fri_Dec_15_09_30_54_2023.hdf5",
+        "instruction": "Open or close hinged object (ex: hinged door, microwave, oven, book, dryer, toilet, box)",
+        "num_frames": 448
+    }
+]

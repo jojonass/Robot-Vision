@@ -1,0 +1,122 @@
+[
+    {
+        "trial_id": "Fri_Aug_18_11:41:59_2023",
+        "filename": "Fri_Aug_18_11_41_59_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 140
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:44:32_2023",
+        "filename": "Fri_Aug_18_11_44_32_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 100
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:46:39_2023",
+        "filename": "Fri_Aug_18_11_46_39_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 102
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:48:54_2023",
+        "filename": "Fri_Aug_18_11_48_54_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 86
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:51:46_2023",
+        "filename": "Fri_Aug_18_11_51_46_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 100
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:54:07_2023",
+        "filename": "Fri_Aug_18_11_54_07_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 78
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:56:56_2023",
+        "filename": "Fri_Aug_18_11_56_56_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 128
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:00:11_2023",
+        "filename": "Fri_Aug_18_12_00_11_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 81
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:06:13_2023",
+        "filename": "Fri_Aug_18_12_06_13_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 99
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:11:11_2023",
+        "filename": "Fri_Aug_18_12_11_11_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 91
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:13:48_2023",
+        "filename": "Fri_Aug_18_12_13_48_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 78
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:15:56_2023",
+        "filename": "Fri_Aug_18_12_15_56_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 140
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:18:49_2023",
+        "filename": "Fri_Aug_18_12_18_49_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 94
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:21:10_2023",
+        "filename": "Fri_Aug_18_12_21_10_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 105
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:23:49_2023",
+        "filename": "Fri_Aug_18_12_23_49_2023.hdf5",
+        "instruction": "Do anything you like that takes multiple steps to complete.",
+        "num_frames": 81
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:25:45_2023",
+        "filename": "Fri_Aug_18_12_25_45_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 93
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:27:34_2023",
+        "filename": "Fri_Aug_18_12_27_34_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 77
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:33:54_2023",
+        "filename": "Fri_Aug_18_12_33_54_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 93
+    },
+    {
+        "trial_id": "Fri_Dec_15_08:53:49_2023",
+        "filename": "Fri_Dec_15_08_53_49_2023.hdf5",
+        "instruction": "Hang or unhang object (ex: towel on hook, clothes over chair)",
+        "num_frames": 178
+    },
+    {
+        "trial_id": "Fri_Dec_15_09:10:23_2023",
+        "filename": "Fri_Dec_15_09_10_23_2023.hdf5",
+        "instruction": "Do anything you like that takes multiple steps to complete.",
+        "num_frames": 282
+    }
+]

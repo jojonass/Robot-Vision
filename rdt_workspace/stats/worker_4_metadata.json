@@ -1,0 +1,122 @@
+[
+    {
+        "trial_id": "Fri_Aug_18_11:42:16_2023",
+        "filename": "Fri_Aug_18_11_42_16_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 150
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:44:46_2023",
+        "filename": "Fri_Aug_18_11_44_46_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 110
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:46:53_2023",
+        "filename": "Fri_Aug_18_11_46_53_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 82
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:49:10_2023",
+        "filename": "Fri_Aug_18_11_49_10_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 94
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:52:11_2023",
+        "filename": "Fri_Aug_18_11_52_11_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 89
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:54:23_2023",
+        "filename": "Fri_Aug_18_11_54_23_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 93
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:57:13_2023",
+        "filename": "Fri_Aug_18_11_57_13_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 96
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:00:49_2023",
+        "filename": "Fri_Aug_18_12_00_49_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 130
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:07:30_2023",
+        "filename": "Fri_Aug_18_12_07_30_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 102
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:11:28_2023",
+        "filename": "Fri_Aug_18_12_11_28_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 102
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:14:04_2023",
+        "filename": "Fri_Aug_18_12_14_04_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 91
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:16:14_2023",
+        "filename": "Fri_Aug_18_12_16_14_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 91
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:19:03_2023",
+        "filename": "Fri_Aug_18_12_19_03_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 101
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:21:25_2023",
+        "filename": "Fri_Aug_18_12_21_25_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 92
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:24:07_2023",
+        "filename": "Fri_Aug_18_12_24_07_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 91
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:25:58_2023",
+        "filename": "Fri_Aug_18_12_25_58_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 94
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:27:46_2023",
+        "filename": "Fri_Aug_18_12_27_46_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 92
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:34:11_2023",
+        "filename": "Fri_Aug_18_12_34_11_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 81
+    },
+    {
+        "trial_id": "Fri_Dec_15_08:54:21_2023",
+        "filename": "Fri_Dec_15_08_54_21_2023.hdf5",
+        "instruction": "Use cloth to clean something (ex: table, window, mirror, plate)",
+        "num_frames": 239
+    },
+    {
+        "trial_id": "Fri_Dec_15_09:29:31_2023",
+        "filename": "Fri_Dec_15_09_29_31_2023.hdf5",
+        "instruction": "Move object to a new position and orientation (ex: grasping, relocating, flipping)",
+        "num_frames": 190
+    }
+]

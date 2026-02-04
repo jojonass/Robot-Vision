@@ -1,0 +1,11 @@
+*.bin
+*.pth
+*.pt
+*.sif
+*.incomplete
+.cache/
+**/__pycache__/
+**/logs/
+**/checkpoints/
+**/test_data/
+**/temp_svo/

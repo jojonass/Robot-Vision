@@ -1,0 +1,122 @@
+[
+    {
+        "trial_id": "Fri_Aug_18_11:41:27_2023",
+        "filename": "Fri_Aug_18_11_41_27_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 99
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:44:03_2023",
+        "filename": "Fri_Aug_18_11_44_03_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 102
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:46:13_2023",
+        "filename": "Fri_Aug_18_11_46_13_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 102
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:48:14_2023",
+        "filename": "Fri_Aug_18_11_48_14_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 87
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:50:32_2023",
+        "filename": "Fri_Aug_18_11_50_32_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 106
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:53:35_2023",
+        "filename": "Fri_Aug_18_11_53_35_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 100
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:56:22_2023",
+        "filename": "Fri_Aug_18_11_56_22_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 102
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:59:19_2023",
+        "filename": "Fri_Aug_18_11_59_19_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 84
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:02:30_2023",
+        "filename": "Fri_Aug_18_12_02_30_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 123
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:10:17_2023",
+        "filename": "Fri_Aug_18_12_10_17_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 105
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:13:22_2023",
+        "filename": "Fri_Aug_18_12_13_22_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 86
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:15:17_2023",
+        "filename": "Fri_Aug_18_12_15_17_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 113
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:17:58_2023",
+        "filename": "Fri_Aug_18_12_17_58_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 120
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:20:38_2023",
+        "filename": "Fri_Aug_18_12_20_38_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 88
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:23:15_2023",
+        "filename": "Fri_Aug_18_12_23_15_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 118
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:25:18_2023",
+        "filename": "Fri_Aug_18_12_25_18_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 91
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:27:05_2023",
+        "filename": "Fri_Aug_18_12_27_05_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 127
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:33:01_2023",
+        "filename": "Fri_Aug_18_12_33_01_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 91
+    },
+    {
+        "trial_id": "Fri_Dec_15_08:52:06_2023",
+        "filename": "Fri_Dec_15_08_52_06_2023.hdf5",
+        "instruction": "Open or close hinged object (ex: hinged door, microwave, oven, book, dryer, toilet, box)",
+        "num_frames": 253
+    },
+    {
+        "trial_id": "Fri_Dec_15_09:08:19_2023",
+        "filename": "Fri_Dec_15_09_08_19_2023.hdf5",
+        "instruction": "Use cloth to clean something (ex: table, window, mirror, plate)",
+        "num_frames": 197
+    }
+]

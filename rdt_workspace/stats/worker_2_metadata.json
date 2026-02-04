@@ -1,0 +1,122 @@
+[
+    {
+        "trial_id": "Fri_Aug_18_11:41:46_2023",
+        "filename": "Fri_Aug_18_11_41_46_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 94
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:44:17_2023",
+        "filename": "Fri_Aug_18_11_44_17_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 99
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:46:27_2023",
+        "filename": "Fri_Aug_18_11_46_27_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 92
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:48:41_2023",
+        "filename": "Fri_Aug_18_11_48_41_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 94
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:50:47_2023",
+        "filename": "Fri_Aug_18_11_50_47_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 83
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:53:50_2023",
+        "filename": "Fri_Aug_18_11_53_50_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 104
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:56:37_2023",
+        "filename": "Fri_Aug_18_11_56_37_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 131
+    },
+    {
+        "trial_id": "Fri_Aug_18_11:59:56_2023",
+        "filename": "Fri_Aug_18_11_59_56_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 109
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:02:46_2023",
+        "filename": "Fri_Aug_18_12_02_46_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 80
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:10:32_2023",
+        "filename": "Fri_Aug_18_12_10_32_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 103
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:13:35_2023",
+        "filename": "Fri_Aug_18_12_13_35_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 94
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:15:36_2023",
+        "filename": "Fri_Aug_18_12_15_36_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 100
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:18:29_2023",
+        "filename": "Fri_Aug_18_12_18_29_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 163
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:20:55_2023",
+        "filename": "Fri_Aug_18_12_20_55_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 103
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:23:33_2023",
+        "filename": "Fri_Aug_18_12_23_33_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 94
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:25:32_2023",
+        "filename": "Fri_Aug_18_12_25_32_2023.hdf5",
+        "instruction": "Do anything you like that takes multiple steps to complete.",
+        "num_frames": 87
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:27:21_2023",
+        "filename": "Fri_Aug_18_12_27_21_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 88
+    },
+    {
+        "trial_id": "Fri_Aug_18_12:33:19_2023",
+        "filename": "Fri_Aug_18_12_33_19_2023.hdf5",
+        "instruction": "drop yellow block into blue cup",
+        "num_frames": 85
+    },
+    {
+        "trial_id": "Fri_Dec_15_08:53:05_2023",
+        "filename": "Fri_Dec_15_08_53_05_2023.hdf5",
+        "instruction": "Use cloth to clean something (ex: table, window, mirror, plate)",
+        "num_frames": 491
+    },
+    {
+        "trial_id": "Fri_Dec_15_09:09:48_2023",
+        "filename": "Fri_Dec_15_09_09_48_2023.hdf5",
+        "instruction": "Move object into or out of container (ex: drawer, clothes hamper, plate, trashcan, washer)",
+        "num_frames": 344
+    }
+]
