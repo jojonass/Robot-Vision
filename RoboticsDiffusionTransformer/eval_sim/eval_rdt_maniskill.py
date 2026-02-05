@@ -1,40 +1,38 @@
 from typing import Callable, List, Type
 import sys
-import os
-import random
-import argparse
-import yaml
-import torch
-import numpy as np
+sys.path.append('/')
 import gymnasium as gym
-import tqdm
-import csv
-import imageio
-from collections import deque
-from PIL import Image
-from pathlib import Path
-
-# Maniskill and Model imports
+import numpy as np
 from mani_skill.envs.sapien_env import BaseEnv
 from mani_skill.utils import common, gym_utils
+import argparse
+import yaml
 from scripts.maniskill_model import create_model, RoboticDiffusionTransformerModel
+import torch
+from collections import deque
+from PIL import Image
+import cv2
+import imageio 
+import random
+import os
+import tqdm
 
 def parse_args(args=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("-e", "--env-id", type=str, default="PickCube-v1", help="Environment to run.")
-    parser.add_argument("-o", "--obs-mode", type=str, default="rgb", help="Observation mode.")
-    parser.add_argument("-n", "--num-traj", type=int, default=25, help="Number of trajectories to test.")
-    parser.add_argument("--only-count-success", action="store_true", help="Only save successful trajectories.")
+    parser.add_argument("-e", "--env-id", type=str, default="PickCube-v1")
+    parser.add_argument("-o", "--obs-mode", type=str, default="rgb")
+    parser.add_argument("-n", "--num-traj", type=int, default=25)
+    parser.add_argument("--only-count-success", action="store_true")
     parser.add_argument("--reward-mode", type=str)
-    parser.add_argument("-b", "--sim-backend", type=str, default="auto", help="Simulation backend.")
-    parser.add_argument("--render-mode", type=str, default="rgb_array", help="Rendering mode.")
-    parser.add_argument("--shader", default="default", type=str, help="Shader used for rendering.")
-    parser.add_argument("--num-procs", type=int, default=1, help="Number of processes.")
-    parser.add_argument("--pretrained_path", type=str, default=None, help="Path to the pretrained model.")
-    parser.add_argument("--random_seed", type=int, default=0, help="Random seed.")
+    parser.add_argument("-b", "--sim-backend", type=str, default="gpu")
+    parser.add_argument("--render-mode", type=str, default="rgb_array")
+    parser.add_argument("--shader", default="default", type=str)
+    parser.add_argument("--num-procs", type=int, default=1)
+    parser.add_argument("--pretrained_path", type=str, default=None)
+    parser.add_argument("--random_seed", type=int, default=0)
     return parser.parse_args()
 
-# --- Initialization ---
+
 args = parse_args()
 seed = args.random_seed
 random.seed(seed)
@@ -45,10 +43,9 @@ torch.cuda.manual_seed(seed)
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
 
-# Setup directories for results
-workspace_root = Path("/home/e12434694/rdt_workspace")
-eval_dir = workspace_root / "evaluation_results" / args.env_id
-eval_dir.mkdir(parents=True, exist_ok=True)
+# Create video directory
+video_dir = "eval_videos"
+os.makedirs(video_dir, exist_ok=True)
 
 task2lang = {
     "PegInsertionSide-v1": "Pick up a orange-white peg and insert the orange end into the box with a hole in it.",
@@ -58,7 +55,6 @@ task2lang = {
     "PushCube-v1": "Push and move a cube to a goal region in front of it."
 }
 
-# --- Environment Setup ---
 env_id = args.env_id
 env = gym.make(
     env_id,
@@ -66,10 +62,10 @@ env = gym.make(
     control_mode="pd_joint_pos",
     render_mode=args.render_mode,
     reward_mode="dense" if args.reward_mode is None else args.reward_mode,
-    sim_backend="gpu"
+    sim_backend='gpu'
 )
 
-# --- Model Setup ---
+# Model initialization
 config_path = 'configs/base.yaml'
 with open(config_path, "r") as fp:
     config = yaml.safe_load(fp)
@@ -82,42 +78,34 @@ policy = create_model(
     pretrained_vision_encoder_name_or_path="google/siglip-so400m-patch14-384"
 )
 
-# --- Instruction Encoding ---
 if os.path.exists(f'text_embed_{env_id}.pt'):
     text_embed = torch.load(f'text_embed_{env_id}.pt')
 else:
     text_embed = policy.encode_instruction(task2lang[env_id])
     torch.save(text_embed, f'text_embed_{env_id}.pt')
 
-# --- Evaluation Loop ---
 MAX_EPISODE_STEPS = 400 
 total_episodes = args.num_traj  
 success_count = 0  
 base_seed = 20241201
-
-# Flags to ensure we only save one of each video type
-saved_success_video = False
-saved_failure_video = False
-eval_stats = []
-
-print(f"Starting evaluation on {env_id} for {total_episodes} trajectories...")
 
 for episode in tqdm.trange(total_episodes):
     obs_window = deque(maxlen=2)
     obs, _ = env.reset(seed = episode + base_seed)
     policy.reset()
 
-    # Initial frame capture
     img = env.render().squeeze(0).detach().cpu().numpy()
     obs_window.append(None)
     obs_window.append(np.array(img))
     proprio = obs['agent']['qpos'][:, :-1]
 
     global_steps = 0
-    video_frames = [img] # Buffer to store frames for video
-    done = False
-    is_success = False
+    video_frames = [] # List to store frames for the current episode
+    
+    # Store initial frame
+    video_frames.append(img)
 
+    done = False
     while global_steps < MAX_EPISODE_STEPS and not done:
         image_arrs = []
         for window_img in obs_window:
@@ -126,66 +114,32 @@ for episode in tqdm.trange(total_episodes):
             image_arrs.append(None)
         
         images = [Image.fromarray(arr) if arr is not None else None for arr in image_arrs]
-        
-        # Policy Inference
         actions = policy.step(proprio, images, text_embed).squeeze(0).cpu().numpy()
-        
-        # Execute action chunks (Subsampling for RDT temporal consistency)
         actions = actions[::4, :]
+        
         for idx in range(actions.shape[0]):
             action = actions[idx]
             obs, reward, terminated, truncated, info = env.step(action)
-            
-            # Record frame
             img = env.render().squeeze(0).detach().cpu().numpy()
-            video_frames.append(img)
             
-            # Update state
             obs_window.append(img)
+            video_frames.append(img) # Collect frame
+            
             proprio = obs['agent']['qpos'][:, :-1]
             global_steps += 1
             
             if terminated or truncated:
                 if info.get('success', False):
-                    is_success = True
                     success_count += 1
                 done = True
                 break 
-
-    # --- Video Saving Logic ---
-    if is_success and not saved_success_video:
-        vid_path = eval_dir / f"success_trial_{episode}.mp4"
-        imageio.mimsave(vid_path, video_frames, fps=20)
-        saved_success_video = True
-        print(f" Saved success video to {vid_path}")
     
-    if not is_success and not saved_failure_video:
-        vid_path = eval_dir / f"failure_trial_{episode}.mp4"
-        imageio.mimsave(vid_path, video_frames, fps=20)
-        saved_failure_video = True
-        print(f" Saved failure video to {vid_path}")
+    # Save the video for the episode
+    status = "success" if info.get('success', False) else "fail"
+    video_path = os.path.join(video_dir, f"trial_{episode+1}_{status}.mp4")
+    imageio.mimsave(video_path, video_frames, fps=20) # You can adjust FPS as needed
 
-    # Log statistics
-    eval_stats.append({
-        "trial": episode + 1,
-        "success": is_success,
-        "steps": global_steps,
-        "seed": episode + base_seed
-    })
+    print(f"Trial {episode+1} finished, success: {info.get('success', False)}, steps: {global_steps}")
 
-# --- Final Reporting ---
-success_rate = (success_count / total_episodes) * 100
-
-# Save stats to CSV
-csv_path = eval_dir / "results.csv"
-with open(csv_path, 'w', newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=["trial", "success", "steps", "seed"])
-    writer.writeheader()
-    writer.writerows(eval_stats)
-
-print("\n" + "="*40)
-print(f"FINAL RESULTS FOR {env_id}")
-print(f"Success Rate: {success_rate:.2f}% ({success_count}/{total_episodes})")
-print(f"Stats saved to: {csv_path}")
-print(f"Videos saved in: {eval_dir}")
-print("="*40)
+success_rate = success_count / total_episodes * 100
+print(f"Success rate: {success_rate}%")
