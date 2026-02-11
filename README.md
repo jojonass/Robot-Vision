@@ -1,9 +1,3 @@
-Here is your **cleaned, structured, and logically organized** README section.
-I removed duplication, fixed formatting, improved clarity, and made the flow professional and readable.
-
-You can copy this directly into `README.md`.
-
----
 
 ````markdown
 # RDT-DE
