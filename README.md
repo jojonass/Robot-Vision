@@ -1,9 +1,8 @@
-Perfect — here is your **clean, readable, properly structured README**, ready to copy into `README.md`.
+
 
 * Project name fixed: **RDT-DE**
 * Environment name fixed: **rdt_env**
-* Cleaner formatting (no unnecessary code blocks)
-* Added section describing `rdt_workspace`
+
 
 ---
 
@@ -12,12 +11,51 @@ Perfect — here is your **clean, readable, properly structured README**, ready 
 
 RDT-DE provides the environment setup and cluster execution pipeline for running evaluation with the ZED SDK and DROID SVO trajectories on a SLURM-based GPU cluster.
 
+
+
 The project uses:
 - A Conda environment for Python dependencies
 - An Apptainer container for CUDA and ZED SDK support
 - A cluster patch strategy to bridge hardware and Python libraries
 
 ---
+
+
+This repository assumes reproduction of **RDT-1B**. Please complete the following prerequisite step before continuing.
+
+---
+
+# Prerequisite: RDT-1B Reproduction
+
+Before setting up this repository, you must:
+
+1. Visit the official **RDT-1B GitHub repository**
+2. Follow their instructions to:
+   - Download the pretrained model weights
+   - Download the required encoders
+3. Place the downloaded files exactly as specified in the RDT-1B repository structure
+
+It is important that:
+- The checkpoint files remain in the expected directory (e.g., `checkpoints/`)
+- Encoder files are placed in the correct subdirectories
+- File names are not modified
+
+This repository relies on the exact folder structure expected by RDT-1B.  
+If the weights or encoders are misplaced, evaluation will fail.
+
+Once RDT-1B is correctly set up, proceed with the environment setup below.
+
+
+
+# 1. Environment Setup
+
+To ensure reproducibility, recreate the Conda environment using the provided `environment.yml` file.
+
+### Create the Environment
+
+```bash
+conda env create -f environment.yml
+
 
 # 1. Environment Setup
 
@@ -45,6 +83,64 @@ conda list
 The Python environment is now ready.
 
 ---
+
+To Run reproduction benchmark used to test baseline for RDT-1B run this script as an example 
+
+
+#!/bin/bash
+#SBATCH --job-name
+#SBATCH --partition
+#SBATCH --gres
+#SBATCH --cpus-per-task
+#SBATCH --mem
+#SBATCH --time
+#SBATCH --output=rdt_eval_%j.out
+
+# 1. Environment Setup
+source /home/miniconda3/etc/profile.d/conda.sh
+conda activate rdt_env
+
+# 2. Silence the Noise (Warnings & Logs)
+export PYTHONWARNINGS="ignore"
+export TRANSFORMERS_VERBOSITY=error
+export HF_HUB_DISABLE_SYMLINKS_WARNING=1
+export SAPIEN_NO_GUI=1
+
+# 3. Offline Weights Setup
+export TRANSFORMERS_OFFLINE=1
+export HF_DATASETS_OFFLINE=1
+export HF_HOME="/home/RoboticsDiffusionTransformer"
+
+# 4. Vulkan & Rendering Fix (Enables the robot's "eyes")
+if [ -f "/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json" ]; then
+    export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json
+elif [ -f "/etc/vulkan/icd.d/nvidia_icd.json" ]; then
+    export VK_ICD_FILENAMES=/etc/vulkan/icd.d/nvidia_icd.json
+fi
+
+export XDG_RUNTIME_DIR=/tmp/runtime-$USER
+mkdir -p $XDG_RUNTIME_DIR
+
+# 5. Library Links
+export LD_LIBRARY_PATH=/lib64:/usr/lib64/nvidia:$LD_LIBRARY_PATH
+export LD_PRELOAD=/lib64/libcuda.so.1
+
+# 6. Execution
+cd /home/RoboticsDiffusionTransformer/
+export PYTHONPATH=$PYTHONPATH:$(pwd)
+
+echo "--- Starting RDT Evaluation on $(hostname) ---"
+python -u eval_sim/eval_rdt_maniskill.py \
+    --pretrained_path /home/RoboticsDiffusionTransformer/rdt_1b/mp_rank_00_model_states.pt \
+    -e "PickCube-v1" \
+    -o "rgb" \
+    --sim-backend "gpu" \
+    -n 25
+
+
+
+
+
 
 # 2. Data Extraction Pipeline (Cluster Setup)
 
@@ -154,32 +250,33 @@ apptainer exec --nv \
 
 ---
 
-# 3. rdt_workspace Structure
+
+
+
+# 3. rdt_workspac 
 
 The main project code is located in the `rdt_workspace` directory.
 
-This directory contains:
+In the scripts folder contains: 
+Here is the direct description of the files shown in your repository:
 
-* Core evaluation logic
-* Model loading and inference code
-* Simulation backend integration
-* Scripts for trajectory processing
-* ZED camera interaction through the Python wrapper
-* Checkpoint loading and configuration handling
+### Python Scripts
 
-In particular:
+* **`evaluation.py`**: Runs the inference and success rate testing for the RDT model within the ManiSkill simulation.
+* **`hdf5_maniskill_dataset.py`**: Defines the data structure and loading logic for ManiSkill trajectories stored in HDF5 files.
+* **`prep_all.py`**: Executes the full data preparation sequence
+* **`svo_online.py`**: Handles the direct extraction of depth data from ZED SVO files.
+* **`unique_inst.py`**: Identifies and organizes unique natural language instructions to ensure the model trains on diverse tasks.
 
-* `scripts/evaluation.py`
-  Entry point for running evaluation inside the container.
+### Slurm and Shell Scripts
 
-* `checkpoints/`
-  Contains trained model weights.
+* **`finetune_maniskill.sh`**: The main cluster script for starting the RDT-DE fine-tuning process on ManiSkill.
+* **`eval.sh`**: Submits the job to the cluster to run the `evaluation.py` script and record model performance.
+* **`submit_prep.sh`**: Launches the `prep_all.py` job to handle data processing on cluster nodes.
+* **`submit_droid.sh`**: Specifically handles the cluster submission for processing raw DROID dataset files.
+* **`submit_instructions.sh`**: Submits jobs for processing or filtering the instruction set used for VLA training.
 
-* Configuration files
-  Define simulation backend parameters and pretrained model paths.
 
-The `rdt_workspace` directory is the main execution layer of the project.
-All cluster jobs ultimately call code from this directory.
 
 ---
 
@@ -192,18 +289,4 @@ All cluster jobs ultimately call code from this directory.
 5. Provide Google Cloud credentials
 6. Run the SLURM job
 
-The system is then ready for evaluation and data extraction.
 
-```
-
----
-
-If you’d like next, I can:
-
-- Make this more concise and “publication style”
-- Add a Quick Start section at the top
-- Add a Troubleshooting section (recommended for cluster repos)
-- Or make it more formal for a thesis/lab repository
-
-Just tell me the target audience.
-```
