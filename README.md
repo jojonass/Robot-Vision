@@ -1,8 +1,7 @@
+Here is your **cleaned, structured, and logically organized** README section.
+I removed duplication, fixed formatting, improved clarity, and made the flow professional and readable.
 
-
-* Project name fixed: **RDT-DE**
-* Environment name fixed: **rdt_env**
-
+You can copy this directly into `README.md`.
 
 ---
 
@@ -11,55 +10,40 @@
 
 RDT-DE provides the environment setup and cluster execution pipeline for running evaluation with the ZED SDK and DROID SVO trajectories on a SLURM-based GPU cluster.
 
-
-
 The project uses:
-- A Conda environment for Python dependencies
+- A Conda environment (`rdt_env`) for Python dependencies
 - An Apptainer container for CUDA and ZED SDK support
-- A cluster patch strategy to bridge hardware and Python libraries
-
----
-
-
-This repository assumes reproduction of **RDT-1B**. Please complete the following prerequisite step before continuing.
+- A cluster patch strategy to bridge hardware and external Python libraries
 
 ---
 
 # Prerequisite: RDT-1B Reproduction
 
-Before setting up this repository, you must:
+This repository assumes that **RDT-1B** has already been correctly set up.
+
+Before continuing, you must:
 
 1. Visit the official **RDT-1B GitHub repository**
 2. Follow their instructions to:
    - Download the pretrained model weights
    - Download the required encoders
-3. Place the downloaded files exactly as specified in the RDT-1B repository structure
+3. Place the downloaded files exactly as specified in the original RDT-1B directory structure
 
-It is important that:
-- The checkpoint files remain in the expected directory (e.g., `checkpoints/`)
-- Encoder files are placed in the correct subdirectories
-- File names are not modified
+Important:
+- Keep checkpoint files in their expected directories (e.g., `rdt_1b/`)
+- Do not rename weight files
+- Ensure encoder files are placed in the correct subdirectories
 
 This repository relies on the exact folder structure expected by RDT-1B.  
 If the weights or encoders are misplaced, evaluation will fail.
 
-Once RDT-1B is correctly set up, proceed with the environment setup below.
+Once RDT-1B is correctly set up, continue with the environment configuration below.
 
-
-
-# 1. Environment Setup
-
-To ensure reproducibility, recreate the Conda environment using the provided `environment.yml` file.
-
-### Create the Environment
-
-```bash
-conda env create -f environment.yml
-
+---
 
 # 1. Environment Setup
 
-To ensure reproducibility, recreate the Conda environment using the provided `environment.yml` file.
+To ensure reproducibility, recreate the Conda environment using the provided `environment.yml`.
 
 ### Create the Environment
 
@@ -73,7 +57,7 @@ conda env create -f environment.yml
 conda activate rdt_env
 ```
 
-(Optional) Verify the installation:
+(Optional) Verify installation:
 
 ```bash
 python --version
@@ -84,34 +68,35 @@ The Python environment is now ready.
 
 ---
 
-To Run reproduction benchmark used to test baseline for RDT-1B run this script as an example 
+## Running the RDT-1B Reproduction Benchmark
 
+To reproduce the baseline benchmark used for testing RDT-1B, use a SLURM script similar to the following:
 
+```bash
 #!/bin/bash
-#SBATCH --job-name
-#SBATCH --partition
-#SBATCH --gres
-#SBATCH --cpus-per-task
-#SBATCH --mem
-#SBATCH --time
+#SBATCH --job-name=rdt_eval
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=32G
+#SBATCH --time=24:00:00
 #SBATCH --output=rdt_eval_%j.out
 
-# 1. Environment Setup
+# Activate environment
 source /home/miniconda3/etc/profile.d/conda.sh
 conda activate rdt_env
 
-# 2. Silence the Noise (Warnings & Logs)
+# Silence warnings
 export PYTHONWARNINGS="ignore"
 export TRANSFORMERS_VERBOSITY=error
 export HF_HUB_DISABLE_SYMLINKS_WARNING=1
 export SAPIEN_NO_GUI=1
 
-# 3. Offline Weights Setup
+# Offline mode
 export TRANSFORMERS_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
 export HF_HOME="/home/RoboticsDiffusionTransformer"
 
-# 4. Vulkan & Rendering Fix (Enables the robot's "eyes")
+# Vulkan configuration
 if [ -f "/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json" ]; then
     export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json
 elif [ -f "/etc/vulkan/icd.d/nvidia_icd.json" ]; then
@@ -121,26 +106,23 @@ fi
 export XDG_RUNTIME_DIR=/tmp/runtime-$USER
 mkdir -p $XDG_RUNTIME_DIR
 
-# 5. Library Links
+# Library configuration
 export LD_LIBRARY_PATH=/lib64:/usr/lib64/nvidia:$LD_LIBRARY_PATH
 export LD_PRELOAD=/lib64/libcuda.so.1
 
-# 6. Execution
+# Run evaluation
 cd /home/RoboticsDiffusionTransformer/
 export PYTHONPATH=$PYTHONPATH:$(pwd)
 
-echo "--- Starting RDT Evaluation on $(hostname) ---"
 python -u eval_sim/eval_rdt_maniskill.py \
     --pretrained_path /home/RoboticsDiffusionTransformer/rdt_1b/mp_rank_00_model_states.pt \
     -e "PickCube-v1" \
     -o "rgb" \
     --sim-backend "gpu" \
     -n 25
+```
 
-
-
-
-
+---
 
 # 2. Data Extraction Pipeline (Cluster Setup)
 
@@ -148,15 +130,13 @@ The data extraction and evaluation pipeline runs inside an Apptainer container d
 
 Because the container image is read-only, we use a **Cluster Patch strategy**:
 
-* The base container provides CUDA, Ubuntu, and the ZED C++ SDK.
+* The base container provides Ubuntu, CUDA, and the ZED C++ SDK.
 * External Python dependencies are mounted at runtime.
-* USB drivers are bridged manually.
+* USB drivers are manually bridged.
 
 ---
 
 ## Step 1 — Pull the ZED Apptainer Image
-
-On the cluster, pull the required container image:
 
 ```bash
 apptainer pull ~/zed_sdk.sif docker://stereolabs/zed:4.0-gl-devel-cuda11.4-ubuntu20.04
@@ -168,15 +148,13 @@ The `gl-devel` version is required for EGL-based off-screen rendering.
 
 ## Step 2 — Prepare the Python Patch (Local Machine)
 
-Since the container is read-only, create a portable Python package directory locally and upload it to the cluster.
-
-### Create the Package Directory
+Create a portable Python package directory locally and upload it to the cluster.
 
 ```bash
 mkdir -p zed_container_libs
 ```
 
-### Install Required Dependencies
+Install required dependencies:
 
 ```bash
 pip install --target=./zed_container_libs \
@@ -192,34 +170,27 @@ pip install --target=./zed_container_libs \
     pyasn1
 ```
 
-### Install the ZED Python Wrapper (Python 3.8)
+Install the ZED Python wrapper (Python 3.8):
 
 ```bash
 pip install --target=./zed_container_libs \
     https://download.stereolabs.com/zedsdk/4.0/whl/linux_x86_64/pyzed-4.0-cp38-cp38-linux_x86_64.whl
 ```
 
-Upload the complete `zed_container_libs` folder to your cluster home directory.
+Upload the full `zed_container_libs` directory to your cluster home.
 
 ---
 
 ## Step 3 — Hardware Bridge & Authentication
 
-### Extract USB Driver Bridge (Run Once on Cluster)
+Extract the USB bridge (run once on cluster):
 
 ```bash
 apptainer exec ~/zed_sdk.sif \
     cp /usr/lib/x86_64-linux-gnu/libusb-1.0.so.0 ~/libusb-1.0.so.0
 ```
 
-This bridges the USB driver from the container to the host system.
-
-### Google Cloud Credentials
-
-To download DROID `.svo` files:
-
-1. Place your service account key (e.g., `credentials.json`) in the project root.
-2. The environment variable must point to it during execution:
+For DROID `.svo` downloads, place your service account key (`credentials.json`) in the project root and export:
 
 ```bash
 export GOOGLE_APPLICATION_CREDENTIALS=./credentials.json
@@ -227,9 +198,9 @@ export GOOGLE_APPLICATION_CREDENTIALS=./credentials.json
 
 ---
 
-## Step 4 — Running with SLURM
+## Step 4 — Running via SLURM
 
-Example SLURM script:
+Example execution script:
 
 ```bash
 #!/bin/bash
@@ -250,43 +221,40 @@ apptainer exec --nv \
 
 ---
 
-
-
-
-# 3. rdt_workspac 
+# 3. rdt_workspace Directory
 
 The main project code is located in the `rdt_workspace` directory.
 
-In the scripts folder contains: 
-Here is the direct description of the files shown in your repository:
-
 ### Python Scripts
 
-* **`evaluation.py`**: Runs the inference and success rate testing for the RDT model within the ManiSkill simulation.
-* **`hdf5_maniskill_dataset.py`**: Defines the data structure and loading logic for ManiSkill trajectories stored in HDF5 files.
-* **`prep_all.py`**: Executes the full data preparation sequence
-* **`svo_online.py`**: Handles the direct extraction of depth data from ZED SVO files.
-* **`unique_inst.py`**: Identifies and organizes unique natural language instructions to ensure the model trains on diverse tasks.
+* `evaluation.py` — Runs inference and computes success rates for RDT inside ManiSkill.
+* `hdf5_maniskill_dataset.py` — Defines data loading for ManiSkill HDF5 trajectories.
+* `prep_all.py` — Executes the full data preparation pipeline.
+* `svo_online.py` — Extracts depth data from ZED `.svo` files.
+* `unique_inst.py` — Processes and filters natural language instructions.
 
-### Slurm and Shell Scripts
+### SLURM / Shell Scripts
 
-* **`finetune_maniskill.sh`**: The main cluster script for starting the RDT-DE fine-tuning process on ManiSkill.
-* **`eval.sh`**: Submits the job to the cluster to run the `evaluation.py` script and record model performance.
-* **`submit_prep.sh`**: Launches the `prep_all.py` job to handle data processing on cluster nodes.
-* **`submit_droid.sh`**: Specifically handles the cluster submission for processing raw DROID dataset files.
-* **`submit_instructions.sh`**: Submits jobs for processing or filtering the instruction set used for VLA training.
-
-
+* `finetune_maniskill.sh` — Launches RDT-DE fine-tuning on the cluster.
+* `eval.sh` — Submits evaluation jobs.
+* `submit_prep.sh` — Submits data preprocessing jobs.
+* `submit_droid.sh` — Processes raw DROID dataset files.
+* `submit_instructions.sh` — Submits instruction filtering jobs.
 
 ---
 
 # Setup Summary
 
-1. Create the Conda environment (`rdt_env`)
-2. Pull the ZED Apptainer image
-3. Create and upload the Python patch folder
-4. Extract the USB bridge
-5. Provide Google Cloud credentials
-6. Run the SLURM job
+1. Reproduce RDT-1B (download weights and encoders)
+2. Create the Conda environment (`rdt_env`)
+3. Pull the ZED Apptainer image
+4. Create and upload the Python patch
+5. Extract the USB bridge
+6. Provide Google Cloud credentials
+7. Run the SLURM job
+
+```
+
+---
 
 
